@@ -20,7 +20,6 @@ public class Demonic {
 					if(token.indexOf("-") != -1 && token.length() >= 2) {
 						exp.append(-Integer.parseInt(token.substring(1, 2)));
 					} else if(token.indexOf("(") != -1) {
-						//System.out.println(token);
 						exp.append(token.substring(token.indexOf("("), token.indexOf("(") + 1));
 						exp.append(" ");
 						exp.append(token.replaceAll("[(]", ""));
