@@ -120,10 +120,9 @@ public class Cards {
 	}
 	
 	private static class Card implements Comparable<Card>{
-		private String type, suit;
+		private String suit;
 		private int rank;
 		public Card(String type) {
-			this.type = type;
 			suit = type.substring(type.length() - 1, type.length());
 			String theRank = type.substring(0, type.length() - 1);
 			if(theRank.equals("J")) {
@@ -140,7 +139,7 @@ public class Cards {
 		}
 		
 		public boolean isAdjacent(Card card) {
-			if(this.rank == 13 && card.rank == 1) 
+			if(this.rank == 1 && card.rank == 10) 
 				return true;
 			else
 				return card.rank - this.rank == 1;
