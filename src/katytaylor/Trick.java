@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -17,8 +18,9 @@ import java.util.TreeMap;
 public class Trick {
 
 	public static void main(String[] args) throws CloneNotSupportedException {
-		try(BufferedReader reader = new BufferedReader(new FileReader(new File("trick.dat")))) {
+		try(BufferedReader reader = new BufferedReader(new FileReader(new File("trick2.dat")))) {
 			int cases = Integer.parseInt(reader.readLine());
+			PrintWriter print = new PrintWriter("exam.dat");
 			for(int i = 0; i<cases; i++) {
 				int numTypes = Integer.parseInt(reader.readLine());
 				List<Candy> candyList = new ArrayList<>(numTypes);
@@ -38,21 +40,27 @@ public class Trick {
 								int test = collect.combinedTaste + numCandies * candyList.get(candyIndex).taste;
 								if(test > col[weight].combinedTaste)
 									(col[weight] = collect.clone()).addCandies(candyList.get(candyIndex), numCandies);
+								
+								print.write(Arrays.toString(col) + "\n");
 							}
 						}
+						
 					}
+					System.out.println(Arrays.toString(col));
 				}
-				
+				System.out.println(Arrays.toString(col));
 				CandyCollection maxValueCollection = col[maxWeight];
 				for(Entry<String, Integer> ent : maxValueCollection.candies.entrySet()) {
 					System.out.println(ent.getKey() + ": " + ent.getValue());
 				}
 			}
+			print.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		;
 	}
 
 	public static int calculateMax(int currWeight, Candy[] candies, int index) {
@@ -92,6 +100,14 @@ public class Trick {
 			candies.candies = new TreeMap<>(this.candies);
 			candies.combinedTaste = this.combinedTaste;
 			return candies;
+		}
+
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return "CandyCollection [combinedTaste=" + combinedTaste + "]";
 		}
 		
 	}
