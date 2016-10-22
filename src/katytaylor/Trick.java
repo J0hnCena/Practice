@@ -43,15 +43,7 @@ public class Trick {
 					}
 				}
 				
-				int max = Integer.MIN_VALUE;
-				CandyCollection maxValueCollection = null;
-				for(int x = 0; x<col.length; x++) {
-					if(col[x].combinedTaste >= max) {
-						max = col[x].combinedTaste;
-						maxValueCollection = col[x];
-					}
-				}
-				
+				CandyCollection maxValueCollection = col[maxWeight];
 				for(Entry<String, Integer> ent : maxValueCollection.candies.entrySet()) {
 					System.out.println(ent.getKey() + ": " + ent.getValue());
 				}
