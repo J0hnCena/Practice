@@ -9,9 +9,6 @@ import java.util.Arrays;
 
 public class Rect {
 
-	public Rect() {
-	}
-
 	public static void main(String[] args) {
 		try(BufferedReader reader = new BufferedReader(new FileReader(new File("rect_u.in")))) {
 			int cases = Integer.parseInt(reader.readLine());
