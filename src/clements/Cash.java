@@ -8,9 +8,6 @@ import java.io.IOException;
 
 public class Cash {
 
-	public Cash() {
-	}
-
 	public static void main(String[] args) {
 		try(BufferedReader reader = new BufferedReader(new FileReader(new File("cash.dat")))) {
 			int cases = Integer.parseInt(reader.readLine());

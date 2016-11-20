@@ -8,9 +8,6 @@ import java.text.NumberFormat;
 
 public class Burglary {
 
-	public Burglary() {
-	}
-
 	public static void main(String[] args) {
 		try(BufferedReader reader = new BufferedReader(new FileReader(new File("burglary.dat")))) {
 			int cases = Integer.parseInt(reader.readLine());
